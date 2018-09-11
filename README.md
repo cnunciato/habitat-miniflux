@@ -2,7 +2,7 @@
 
 ## Description
 
-[Miniflux](https://docs.miniflux.app) is an open-source RSS server.
+[Miniflux](https://docs.miniflux.app) is an open-source RSS server and feed reader.
 
 ## Usage
 
