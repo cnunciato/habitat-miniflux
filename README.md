@@ -1,8 +1,8 @@
-# miniflux
+# habitat-miniflux
 
 ## Description
 
-[Miniflux](https://docs.miniflux.app) is an open-source RSS server and feed reader.
+A Habitat plan for packaging and running [Miniflux](https://docs.miniflux.app), the open-source RSS server and feed reader.
 
 ## Usage
 
@@ -18,6 +18,11 @@ hab svc load core/postgresql
 # Install and start Miniflux, binding it to PostgreSQL (and on start, run the database migrations)
 hab svc load cnunciato/miniflux --bind db:postgresql.default
 ```
+
+## Get the Things!
+
+* [On Habitat Builder Depot](https://bldr.habitat.sh/#/pkgs/cnunciato/miniflux/latest)
+* [On Docker Hub](https://hub.docker.com/r/cnunciato/miniflux/)
 
 ## Why the dependency on core/postgresql-client?
 
