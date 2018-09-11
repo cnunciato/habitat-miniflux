@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export DATABASE_URL="postgres://{{ bind.db.first.cfg.superuser_name }}:{{ bind.db.first.cfg.superuser_password }}@{{ bind.db.first.sys.ip }}:{{ bind.db.first.cfg.port }}/{{ cfg.db_name  }}?sslmode=disable"
+export LISTEN_ADDR="{{ cfg.listen_host }}:{{ cfg.listen_port }}"
+
+echo "Starting Miniflux..."
+exec miniflux 2>&1

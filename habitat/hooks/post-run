@@ -1,0 +1,14 @@
+#!/bin/sh
+
+sleep 10
+
+echo "Creating the Miniflux database."
+PGPASSWORD="{{ bind.db.first.cfg.superuser_password }}" createdb -h {{ bind.db.first.sys.ip }} -p {{ bind.db.first.cfg.port }} -U {{ bind.db.first.cfg.superuser_name }} {{ cfg.db_name}} || true
+
+export DATABASE_URL="postgres://{{ bind.db.first.cfg.superuser_name }}:{{ bind.db.first.cfg.superuser_password }}@{{ bind.db.first.sys.ip }}:{{ bind.db.first.cfg.port }}/{{ cfg.db_name}}?sslmode=disable"
+
+echo "Running migrations."
+miniflux -migrate || true
+
+echo "Creating the administrative user."
+ADMIN_USERNAME="{{ cfg.admin_username }}" ADMIN_PASSWORD="{{ cfg.admin_password }}" miniflux -create-admin || true
