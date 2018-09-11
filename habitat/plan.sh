@@ -3,7 +3,7 @@ pkg_origin=cnunciato
 pkg_version="2.0.10"
 pkg_maintainer="Christian Nunciato <chris@nunciato.org>"
 pkg_upstream_url="https://docs.miniflux.app/en/latest/"
-pkg_license=("Apache-2.0")
+pkg_license=("MIT")
 pkg_bin_dirs=(bin)
 
 pkg_deps=(
