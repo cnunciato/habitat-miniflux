@@ -9,7 +9,7 @@ pkg_bin_dirs=(bin)
 pkg_deps=(
   core/wget
   core/go
-  core/postgresql
+  core/postgresql-client
 )
 
 pkg_binds=(

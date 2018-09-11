@@ -19,6 +19,6 @@ hab svc load core/postgresql
 hab svc load cnunciato/miniflux --bind db:postgresql.default
 ```
 
-## Why the core/postgresql dependency?
+## Why the dependency on core/postgresql-client?
 
-As of this writing, since the Miniflux CLI doesn't provide a subcommand for creating its own database, a runtime dependency on `core/postgresal` is declared in order to make use of the PostgreSQL `createdb` command, which we run when the Miniflux service starts &mdash; perhaps not ideal, but it does get the job done, and seems reasonable given Miniflux's dependency on PostgreSQL. This particular implementation detail may change in a future release, but you should expect the Miniflux service to continue managing its own database needs going forward.
+At least today, the Miniflux CLI doesn't provide a subcommand for creating its own database, so a runtime dependency on `core/postgresal-client` is declared in order to make use of its `createdb` command, which we run when the Miniflux service starts &mdash; perhaps not ideal, since the `miniflux` CLI bundles its own PostgreSQL client, but it gets the job done, and seems reasonable given Miniflux's dependency on PostgreSQL. This particular implementation detail may change in a future release, but you should expect the Miniflux service package to continue managing its own database needs going forward.
